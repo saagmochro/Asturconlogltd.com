@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Astur Conlog Ltd</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { margin:0; font-family:Arial, sans-serif; background:#f9f9f9; color:#333; }
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://i.pinimg.com/736x/7a/65/61/7a6561c69356063002600b5e6e5316fc.jpg') center/cover no-repeat fixed;
+  color: #eaeaea;
+}
+
+/* Add an overlay so text stays readable */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55); /* dark layer */
+  z-index: -1;
+}
+.project-card {
+  background: #1a1a1a;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  border-radius: 12px;
+}
+
+    header { background:#0077b6; color:#fff; text-align:center; padding:15px 5px; }
+    header h1 { font-size:2.8rem; margin-bottom:10px; }
+    header p { font-size:1.2rem; }
+
+   .projects-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.projects-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* Modern dark card */
+.project-card {
+  background: #1a1a1a;
+  color: #eaeaea;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.55);
+}
+
+/* Gallery inside card */
+.project-gallery {
+  position: relative;
+}
+
+.project-gallery .main-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-gallery .thumbs {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.05);
+  justify-content: center;
+}
+
+.project-gallery .thumbs img {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity .2s, transform .2s;
+}
+
+.project-gallery .thumbs img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Card body */
+.project-body {
+  padding: 20px;
+}
+
+.project-body h3 {
+  margin: 0 0 8px;
+  color: #4cc9f0;
+  font-size: 1.25rem;
+}
+
+.project-body p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .project-gallery .main-img {
+    height: auto;
+    max-height: 200px;
+  }
+  .project-gallery .thumbs img {
+    width: 50px;
+    height: 38px;
+  }
+}
+
+    footer {
+      background:#222;
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      margin-top:60px;
+    }
+    @media(max-width:600px){
+      header h1 { font-size:2rem; }
+    
+    }
+    /* ===== NAVBAR ===== */
+.main-nav {
+  background: #ffffff;                 /* white for clean look */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;                  /* space between logo and links */
+  overflow-x: auto;           /* if everything still can’t fit */
+}
+
+/* --- Logo --- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.nav-logo span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0077b6;
+  letter-spacing: 0.5px;
+}
+
+/* --- Links --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;                  /* smaller gap */
+  white-space: nowrap;        /* one line only */
+  overflow-x: auto;           /* swipe if needed */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links a {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;          /* shrink text slightly */
+  padding: 4px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0077b6;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0077b6;
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* remove .nav-toggle */
+.nav-toggle { display: none; }
+
+/* default link layout */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ===== Spin-in Animation ===== */
+@keyframes spinIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(-180deg) scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: rotateY(20deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+/* Initial state for cards */
+.project-card {
+  opacity: 0;
+  transform: rotateY(-180deg) scale(0.8);
+  will-change: transform, opacity;
+}
+
+/* When visible */
+.project-card.show {
+  animation: spinIn 0.8s ease forwards;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+.projects-section {
+  padding: 80px 20px;
+}
+
+.project-card {
+  max-width: 100%;
+}
+
+.download-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.download-btn {
+  display: inline-block;
+  background: #0077b6;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #005f8a;
+}
+
+  </style>
+</head>
+<body>
+
+ <nav class="main-nav">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="Astur logo.jpg" alt="Astur Conlog Logo">
+      <span>Astur Conlog Ltd</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+ 
+  </div>
+</nav>
+
+
+  <header>
+    <h1>Our Projects</h1>
+    <p>Showcasing infrastructure & supply solutions delivered since 2014</p>
+  </header>
+
+  <section class="projects-section">
+  <h2 class="projects-title">Our Projects</h2>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-gallery">
+        <img src="ESCAVATOR 3.jpg" alt="Road" class="main-img">
+        <div class="thumbs">
+          <img src="ESCAVATOR 3.jpg" alt="">
+          <img src="ROAD.jpg" alt="">
+          <img src="ESCAVATOR 1.jpg" alt="">
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Kismayo CBD Road Construction</h3>
+        <p>World-class road network improving mobility and trade across Kismayo town.</p>
+      </div>
+    </div>
+
+   
+    <div class="project-card">
+      <div class="project-gallery">
+        <img src="WORK MEN.jpg" alt="Road" class="main-img">
+        <div class="thumbs">
+          <img src="WORK MEN.jpg" alt="">
+          <img src="WORK ON SITE.jpg" alt="">
+          <img src="butar irirgation.jpg" alt="">
+          <img src="butar irrigation 2.jpg" alt="">
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Bulo Bartire Canal Irrigation</h3>
+          <p>Improving food security through lined irrigation canals and distribution systems.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-gallery">
+        <img src="Kismayo road drainage.jpg" alt="" class="main-img">
+        <div class="thumbs">
+          <img src="kismayo road drainage 2.jpg" alt="">
+          <img src="Kismayo road drainage.jpg" alt="">
+          <img src="kismayo road drainage 3.jpg" alt="">
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>Kismayo Road Drainage</h3>
+          <p>Drainage & street-lighting network protecting roads from floods.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-gallery">
+        <img src="kismayo water supply 3.jpg" alt="Road" class="main-img">
+        <div class="thumbs">
+          <img src="kismayo water supply.jpg" alt="">
+          <img src="kismayo water supply 2.jpg" alt="">
+          <img src="kismayo water supply 3.jpg" alt="">
+          <img src="kismayo water supply 4.jpg" alt="">
+        </div>
+      </div>
+      <div class="project-body">
+         <h3>Kismayo water Supply</h3>
+          <p>Kismayo water Supply Project - Dn400 Pipeline Works</p>
+      </div>
+    </div>
+ <div class="project-card">
+      <div class="project-gallery">
+        <img src="PROJECT DONE.jpeg" alt="Road" class="main-img">
+        <div class="thumbs">
+          <img src="PROJECT DONE.jpeg" alt="">
+        </div>
+      </div>
+      <div class="project-body">
+         <h3>Construction of Kismayo Water Supply Project</h3>
+          <p>Construction of Kismayo Water Supply Project(Lot 1, lot 2 & lot 3)</p>
+      </div>
+    </div>
+
+</section>
+
+
+    <div class="download-section">
+  <a href="ASTUR PDF.pdf" class="download-btn" download>
+    📄 Download Full Project Profile (PDF)
+  </a>
+</div>
+
+  <footer>
+    <p>&copy; 2025 Astur Conlog Ltd. All Rights Reserved.</p>
+
+  <p>&copy; 2025 Astur Conlog Ltd. All Rights Reserved.</p>
+  <p>
+    <a href="terms.html">Terms & Conditions</a> |
+    <a href="privacy.html">Privacy Policy</a>
+  </p>
+
+
+  </footer>
+ 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".project-card");
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add("show"), i * 150);
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".project-card").forEach(card => {
+    const main = card.querySelector(".main-img");
+    card.querySelectorAll(".thumbs img").forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        main.src = thumb.src;
+      });
+    });
+  });
+});
+</script>
+
+</body>
+</html>
